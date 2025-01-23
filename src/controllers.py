@@ -26,9 +26,8 @@ async def add_links(request: LinksRequest) -> LinksResponse:
     }
 
     try:
-        # new_id = await get_last_id()+1
-        # await redis.hset(f"hd{new_id}", mapping=data)
-        A =1
+        new_id = await get_last_id()+1
+        await redis.hset(f"hd{new_id}", mapping=data)
 
     except r.ConnectionError as e:
         print(f"Connection error {e}")
